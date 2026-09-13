@@ -1,0 +1,300 @@
+$pink: #ff0054;
+$text: #333;
+$muted: #777;
+$border: #e6e6e6;
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: $text;
+  background: #fff;
+}
+
+button {
+  font: inherit;
+}
+
+.page-header {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  max-width: 1100px;
+  margin: 48px auto 28px;
+  padding: 0 24px;
+
+  h1 {
+    margin: 0;
+    white-space: nowrap;
+    font-size: 25px;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+}
+
+.header-line {
+  height: 1px;
+  flex: 1;
+  background: #111;
+}
+
+.container {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 24px 60px;
+}
+
+.categories {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 34px;
+}
+
+.category {
+  min-width: 130px;
+  padding: 13px 18px;
+  border: 1px solid #d9d9d9;
+  border-radius: 4px;
+  background: #fff;
+  color: #666;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 700;
+  transition: .2s;
+
+  &:hover,
+  &.active {
+    background: $pink;
+    border-color: $pink;
+    color: #fff;
+  }
+}
+
+.showcase {
+  display: grid;
+  grid-template-columns: 42px 1fr 42px;
+  align-items: center;
+  gap: 12px;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+  min-width: 0;
+}
+
+.product-card {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 14px;
+  border: 1px solid $border;
+  border-radius: 4px;
+  background: #fff;
+}
+
+.product-image-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 215px;
+  border: 0;
+  background: #fff;
+  cursor: pointer;
+}
+
+.product-image {
+  max-width: 100%;
+  max-height: 200px;
+  object-fit: contain;
+}
+
+.product-info {
+  min-height: 120px;
+
+  h2 {
+    margin: 12px 0 10px;
+    font-size: 14px;
+    line-height: 1.4;
+    font-weight: 500;
+  }
+}
+
+.product-price {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 18px;
+}
+
+.shipping {
+  display: block;
+  margin-top: 8px;
+  color: #20a35a;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.buy-button,
+.modal-buy-button {
+  width: 100%;
+  padding: 13px;
+  border: 0;
+  border-radius: 4px;
+  background: $pink;
+  color: #fff;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 700;
+
+  &:hover {
+    filter: brightness(.92);
+  }
+}
+
+.arrow {
+  width: 42px;
+  height: 42px;
+  border: 0;
+  border-radius: 50%;
+  background: $pink;
+  color: #fff;
+  cursor: pointer;
+  font-size: 30px;
+  line-height: 1;
+}
+
+.message {
+  grid-column: 1 / -1;
+  padding: 40px;
+  text-align: center;
+}
+
+.error {
+  color: #c00;
+}
+
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: rgba(0, 0, 0, .55);
+}
+
+.modal {
+  position: relative;
+  width: min(760px, 100%);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  padding: 36px;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 20px 70px rgba(0, 0, 0, .25);
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  color: #555;
+  font-size: 30px;
+}
+
+.modal-image-wrap {
+  display: grid;
+  place-items: center;
+  min-height: 330px;
+
+  img {
+    max-width: 100%;
+    max-height: 330px;
+    object-fit: contain;
+  }
+}
+
+.modal-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  h2 {
+    margin: 8px 0 12px;
+    font-size: 24px;
+  }
+
+  p {
+    margin: 0 0 20px;
+    color: $muted;
+    line-height: 1.5;
+  }
+
+  strong {
+    font-size: 25px;
+  }
+}
+
+.modal-label {
+  color: $pink;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.modal-buy-button {
+  margin-top: 22px;
+}
+
+@media (max-width: 900px) {
+  .products-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 620px) {
+  .page-header {
+    margin-top: 28px;
+    gap: 12px;
+
+    h1 {
+      font-size: 18px;
+    }
+  }
+
+  .showcase {
+    grid-template-columns: 1fr;
+  }
+
+  .arrow {
+    display: none;
+  }
+
+  .products-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .modal {
+    grid-template-columns: 1fr;
+    padding: 28px 20px;
+  }
+
+  .modal-image-wrap {
+    min-height: 220px;
+  }
+}
